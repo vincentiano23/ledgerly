@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Home - Ledgerly{% endblock %}
 {% block content %}
-<div class="text-center py-5">
-    <h1 class="display-4">Welcome to Ledgerly</h1>
-    <p class="lead">Modern Accounting System built with Django</p>
-    <a href="/accounts/" class="btn btn-primary btn-lg">View Accounts</a>
-</div>
+<section class="bg-light min-vh-100 d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="display-3 fw-bold mb-3">Welcome to <span class="text-primary">Ledgerly</span></h1>
+        <p class="lead text-muted mb-4">A modern accounting system built with Django — powerful, efficient, and intuitive.</p>
+        <a href="/accounts/" class="btn btn-primary btn-lg px-5 py-3 shadow-sm">View Accounts</a>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
