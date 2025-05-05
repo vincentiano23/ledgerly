@@ -21,6 +21,7 @@ class TransactionCreateView(LoginRequiredMixin, CreateView):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
+
 class TransactionUpdateView(LoginRequiredMixin, UpdateView):
     model = Transaction
     form_class = TransactionForm
@@ -33,3 +34,4 @@ class TransactionUpdateView(LoginRequiredMixin, UpdateView):
         if not (request.user == obj.created_by or request.user.is_staff):
             return redirect('transactions:list')
         return super().dispatch(request, *args, **kwargs)
+

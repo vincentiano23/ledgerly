@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import LedgerEntry
 from .forms import LedgerEntryForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def ledger_index(request):
     entries = LedgerEntry.objects.select_related('account').order_by('-date')
     if request.method == 'POST':
