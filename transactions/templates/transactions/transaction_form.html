@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">{% if form.instance.id %}Edit Transaction{% else %}Create Transaction{% endif %}</h1>
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">{% if form.instance.id %}Update{% else %}Create{% endif %}</button>
+    <a href="{% url 'transactions:list' %}" class="btn btn-secondary ml-2">Cancel</a>
+</form>
+
+{% if form.errors %}
+<div class="alert alert-danger mt-3">
+    <strong>Please correct the following errors:</strong>
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
+
